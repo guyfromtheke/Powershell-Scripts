@@ -16,3 +16,16 @@ Add-VMDvdDrive `
 
 Set-VMFirmware -VMName $vms.Name `
 -FirstBootDevice ((Get-VMFirmware -VMName $vms.Name).BootOrder | Where-Object Device -Like *DvD*).Device
+
+#to be able to create multiple VMS, 
+#'Server002','Server003' |
+#ForEach-Object {
+ 
+#New-VM `
+#-Name $_ `
+#-Generation '2' `
+#-MemoryStartupBytes '2GB' `
+#-NewVHDPath "c:\temp\$_.vhdx" `
+#-NewVHDSizeBytes '40GB' `
+#-SwitchName 'Default Switch' 
+#}
